@@ -92,7 +92,7 @@ const WebDesignContact = () => {
                     </div>
                     <div className="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full text-gray-400 text-sm font-medium">
                         <span className="text-red-500">✉</span>
-                        hello@iteklanka.lk
+                        thuraichamyvithushan19@gmail.com
                     </div>
                     <div className="flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full text-gray-400 text-sm font-medium">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />

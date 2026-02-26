@@ -24,7 +24,7 @@ export default function Contact() {
     message: '',
   });
 
-  const WEB3FORMS_ACCESS_KEY = 'f1240c38-7d93-4ea0-957f-29f32fbd0512';
+  const CONTACT_EMAIL = 'thuraichamyvithushan19@gmail.com';
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -50,14 +50,13 @@ export default function Contact() {
     setStatus({ loading: true, success: false, error: false, message: '' });
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
           name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           phone: formData.phone,
@@ -66,8 +65,7 @@ export default function Contact() {
           website: formData.website,
           heard_from: formData.heardFrom,
           message: formData.message,
-          subject: `New Inquiry from ${formData.firstName} - iTek Solutions LK`,
-          from_name: `${formData.firstName} ${formData.lastName}`,
+          _subject: `New Inquiry from ${formData.firstName} - iTek Solutions LK`,
         }),
       });
 
@@ -205,13 +203,13 @@ export default function Contact() {
                       <ArrowRight className="ml-auto w-4 h-4 text-red-500 group-hover:translate-x-1 transition-all duration-300" />
                     </a>
 
-                    <a href="mailto:info@iteksolutions.lk" className="group flex items-center gap-5 p-5 rounded-2xl border border-red-200 bg-red-50/50 transition-all duration-400 hover:shadow-md">
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="group flex items-center gap-5 p-5 rounded-2xl border border-red-200 bg-red-50/50 transition-all duration-400 hover:shadow-md">
                       <div className="w-11 h-11 rounded-xl bg-red-600 flex items-center justify-center">
                         <Mail className="w-5 h-5 text-white" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-[10px] font-black tracking-widest text-gray-400 uppercase">Email Us</p>
-                        <p className="text-lg font-bold text-gray-900 truncate">info@iteksolutions.lk</p>
+                        <p className="text-lg font-bold text-gray-900 truncate">{CONTACT_EMAIL}</p>
                       </div>
                       <ArrowRight className="ml-auto w-4 h-4 text-red-500 group-hover:translate-x-1 transition-all duration-300" />
                     </a>

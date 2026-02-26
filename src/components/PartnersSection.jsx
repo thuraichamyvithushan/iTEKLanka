@@ -15,16 +15,64 @@ const partners = [
   { name: "HubSpot Certified", image: microsoft },
   { name: "Forbes Council", image: semrush },
   { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
+   { name: "Google Partner", image: googlePartner },
+  { name: "Google Rating 5.0", image: facebook },
+  { name: "The Drum", image: linkedin },
+  { name: "HubSpot Certified", image: microsoft },
+  { name: "Forbes Council", image: semrush },
+  { name: "Semrush", image: youtube },
 ];
 
 export default function PartnersSection() {
-  const allPartners = [...partners, ...partners, ...partners]; // Triple for smoother loop
+  const allPartners = [...partners, ...partners, ...partners];
 
   return (
     <section className="relative w-full bg-zinc-950 py-16 md:py-24 border-y border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-16">
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 1, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center text-red-500 font-black text-[10px] uppercase tracking-[0.4em]"
         >
