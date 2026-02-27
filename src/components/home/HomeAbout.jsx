@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import teamMain from '../../assets/about1.jpg';
 
 export default function HomeAbout() {
@@ -70,13 +71,15 @@ export default function HomeAbout() {
                             At iTek Solutions, we believe digital marketing is more than just clicks and impressions. It's about engineering meaningful connections between ambitious brands and their global audiences through technical precision and diverse creative perspectives.
                         </p>
 
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="px-12 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-red-600 hover:text-white transition-all duration-300 shadow-2xl shadow-white/5"
-                        >
-                            Meet the Visionaries
-                        </motion.button>
+                        <Link to="/about">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="px-12 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-red-600 hover:text-white transition-all duration-300 shadow-2xl shadow-white/5"
+                            >
+                                Meet the Visionaries
+                            </motion.button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>

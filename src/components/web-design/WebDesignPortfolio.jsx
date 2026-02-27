@@ -1,25 +1,15 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-
-const projects = [
-    {
-        name: 'E-commerce Redesign',
-        description: 'A modern shopping experience for a luxury retail brand.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-        name: 'Corporate Identity',
-        description: 'Building a sleek digital presence for a tech powerhouse.',
-        image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-        name: 'Real Estate Platform',
-        description: 'Advanced search and visual tools for property listings.',
-        image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
-    },
-];
+import { Link } from 'react-router-dom';
+import { projects } from '../projects/ProjectsShowcase';
 
 const WebDesignPortfolio = () => {
+    // Filter for web design or development related projects
+    const webProjects = projects.filter(p =>
+        p.category.toLowerCase().includes('web design') ||
+        p.category.toLowerCase().includes('development') ||
+        p.category.toLowerCase().includes('e-commerce')
+    ).slice(0, 3);
+
     return (
         <section className="relative bg-white py-20 md:py-35 overflow-hidden">
             {/* Light atmosphere */}
@@ -53,24 +43,23 @@ const WebDesignPortfolio = () => {
                         </p>
                     </div>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-12 py-6 bg-black text-white rounded-2xl hover:bg-red-600 transition-all font-black uppercase tracking-widest text-xs shadow-2xl shadow-black/20"
-                    >
-                        View Mastery Archive +
-                    </motion.button>
+                    <Link to="/projects">
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-12 py-6 bg-black text-white rounded-2xl hover:bg-red-600 transition-all font-black uppercase tracking-widest text-xs shadow-2xl shadow-black/20"
+                        >
+                            View Mastery Archive +
+                        </motion.button>
+                    </Link>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
-                    {projects.map((project, index) => (
-                        <motion.div
+                    {webProjects.map((project, index) => (
+                        <Link
                             key={index}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: index * 0.1 }}
-                            className="group relative cursor-none"
+                            to="/projects"
+                            className="group relative"
                         >
                             <div className="aspect-[4/5] overflow-hidden rounded-[3.5rem] bg-gray-50 border border-gray-100 shadow-xl group-hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.2)] transition-all duration-1000 relative mb-10">
                                 <img
@@ -82,7 +71,7 @@ const WebDesignPortfolio = () => {
 
                                 <div className="absolute inset-0 flex flex-col justify-end p-12 opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 transition-all duration-700">
                                     <h3 className="text-4xl font-black text-white mb-4 tracking-tighter uppercase leading-none">{project.name}</h3>
-                                    <p className="text-gray-300 text-lg font-medium">{project.description}</p>
+                                    <p className="text-gray-300 text-lg font-medium line-clamp-2">{project.description}</p>
                                 </div>
                             </div>
 
@@ -90,10 +79,10 @@ const WebDesignPortfolio = () => {
                                 <h3 className="text-3xl font-black tracking-tight uppercase italic text-red-600 group-hover:text-black transition-colors duration-500">{project.name}</h3>
                                 <div className="flex items-center gap-4 mt-4">
                                     <div className="w-8 h-[2px] bg-red-500 group-hover:w-16 transition-all duration-700" />
-                                    <p className="text-gray-500 font-black uppercase tracking-[0.2em] text-xs">Web Design / Development</p>
+                                    <p className="text-gray-500 font-black uppercase tracking-[0.2em] text-xs">{project.category}</p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </Link>
                     ))}
                 </div>
             </div>

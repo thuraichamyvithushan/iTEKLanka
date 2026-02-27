@@ -39,7 +39,7 @@ import alien1 from '../../assets/Projects Images/ALIEN SNAIL/001.png';
 import alien2 from '../../assets/Projects Images/ALIEN SNAIL/002.png';
 import alien3 from '../../assets/Projects Images/ALIEN SNAIL/003.png';
 
-const projects = [
+export const projects = [
     {
         name: 'Pink Automotive – Safe & Trusted Vehicle Care',
         description: 'A modern automotive service website built to showcase professional car repair, maintenance, and mechanical solutions across Australia. Designed for trust-building, service clarity, and seamless booking enquiries.',
@@ -67,7 +67,7 @@ const projects = [
         image: pizzaMain,
         gallery: [pizza1,
             pizza2,
-            ],
+        ],
         category: 'Digital Marketing',
         websiteUrl: 'https://www.facebook.com/pizzajaffna/'
     },

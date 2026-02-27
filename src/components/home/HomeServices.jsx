@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import googleLogo from '../../assets/home/g-ads.png';
 import seo from '../../assets/home/seo.png';
 import social from '../../assets/home/socialmedia.png';
@@ -13,6 +14,7 @@ const services = [
         description:
             'Our award-winning strategists use precision targeting to put your brand in front of high-intent buyers, ensuring every dollar works harder for your bottom line.',
         cta: 'Explore Google Ads',
+        path: '/services/google-ads',
         logo: googleLogo,
     },
     {
@@ -22,6 +24,7 @@ const services = [
         description:
             'Comprehensive SEO strategies to improve visibility, traffic, and conversions without paid ads.',
         cta: 'Explore SEO',
+        path: '/services/seo',
         logo: seo,
     },
     {
@@ -31,6 +34,7 @@ const services = [
         description:
             'Targeted social campaigns across platforms to boost engagement and brand loyalty.',
         cta: 'Explore Social',
+        path: '/services/social-media-marketing',
         logo: social,
     },
     {
@@ -40,6 +44,7 @@ const services = [
         description:
             'Responsive, fast-loading sites designed for performance, SEO, and user experience.',
         cta: 'Explore Web',
+        path: '/services/web-design',
         logo: web,
     },
 
@@ -112,13 +117,15 @@ export default function HomeServices() {
                                 {activeService.description}
                             </p>
 
-                            <motion.button
-                                whileHover={{ scale: 1.05, x: 10 }}
-                                className="group flex items-center gap-4 text-red-500 font-black uppercase tracking-widest text-sm"
-                            >
-                                {activeService.cta}
-                                <span className="text-2xl transition-transform group-hover:translate-x-2">→</span>
-                            </motion.button>
+                            <Link to={activeService.path}>
+                                <motion.button
+                                    whileHover={{ scale: 1.05, x: 10 }}
+                                    className="group flex items-center gap-4 text-red-500 font-black uppercase tracking-widest text-sm"
+                                >
+                                    {activeService.cta}
+                                    <span className="text-2xl transition-transform group-hover:translate-x-2">→</span>
+                                </motion.button>
+                            </Link>
                         </div>
 
                         <div className="relative group">

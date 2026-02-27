@@ -2,15 +2,11 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import darkBgSvg from '../../assets/light-birds-bg.svg';
-import project1 from '../../assets/casestudy.jpg';
-
-const caseStudies = [
-    { title: "SEO for Advanced IT", description: "Supermicro and Content Protection Studios. Accelerated-To-Delivery Time of Proven Quality.", image: project1, link: "/case-studies/supermicro" },
-    { title: "Rack Scale Solutions", description: "Empowering content production with accelerated delivery for studios.", image: project1, link: "/case-studies/rack-scale" },
-    { title: "AI Automation", description: "Seamless AI integration for modern industrial workflows.", image: project1, link: "/case-studies/ai" },
-];
+import { projects } from '../projects/ProjectsShowcase';
 
 export default function HomeCaseStudies() {
+    // Show first 3 projects
+    const featuredProjects = projects.slice(0, 3);
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll();
 
@@ -58,40 +54,36 @@ export default function HomeCaseStudies() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14">
-                    {caseStudies.map((study, index) => (
-                        <motion.a
+                    {featuredProjects.map((project, index) => (
+                        <Link
                             key={index}
-                            href={study.link}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: index * 0.1 }}
+                            to="/projects"
                             className="group relative"
                         >
                             <div className="aspect-[4/5] overflow-hidden rounded-[3.5rem] bg-gray-50 border border-gray-100 shadow-xl group-hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.2)] transition-all duration-1000 relative mb-10">
                                 <img
-                                    src={study.image}
-                                    alt={study.title}
+                                    src={project.image}
+                                    alt={project.name}
                                     className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-[1.5s]"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
                                 <div className="absolute inset-0 flex flex-col justify-end p-12 opacity-0 group-hover:opacity-100 transform translate-y-8 group-hover:translate-y-0 transition-all duration-700">
-                                    <h3 className="text-4xl font-black text-white mb-4 tracking-tighter uppercase leading-none">{study.title}</h3>
-                                    <p className="text-gray-300 text-lg font-medium line-clamp-2">{study.description}</p>
+                                    <h3 className="text-4xl font-black text-white mb-4 tracking-tighter uppercase leading-none">{project.name}</h3>
+                                    <p className="text-gray-300 text-lg font-medium line-clamp-2">{project.description}</p>
                                 </div>
                             </div>
 
                             <div className="px-6">
                                 <h3 className="text-3xl font-black tracking-tight uppercase italic text-red-600 group-hover:text-black transition-colors duration-500">
-                                    {study.title}
+                                    {project.name}
                                 </h3>
                                 <div className="flex items-center gap-4 mt-4">
                                     <div className="w-8 h-[2px] bg-red-500 group-hover:w-16 transition-all duration-700" />
-                                    <p className="text-gray-500 font-black uppercase tracking-[0.2em] text-xs">Case Study / Development</p>
+                                    <p className="text-gray-500 font-black uppercase tracking-[0.2em] text-xs">{project.category}</p>
                                 </div>
                             </div>
-                        </motion.a>
+                        </Link>
                     ))}
                 </div>
             </div>

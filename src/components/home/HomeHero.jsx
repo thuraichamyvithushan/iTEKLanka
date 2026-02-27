@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import bannerVideo from '../../assets/banner.mp4';
 
 export default function HomeHero() {
@@ -59,20 +60,24 @@ export default function HomeHero() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="px-12 py-6 bg-red-600 text-white font-black rounded-2xl shadow-2xl shadow-red-600/20 text-xs uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500"
-                        >
-                            Collaborate
-                        </motion.button>
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            className="group flex items-center gap-4 text-white font-black uppercase tracking-[0.2em] text-[11px]"
-                        >
-                            <span className="w-12 h-px bg-white/20 group-hover:w-20 group-hover:bg-red-500 transition-all duration-500" />
-                            View Works
-                        </motion.button>
+                        <Link to="/contact">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="px-12 py-6 bg-red-600 text-white font-black rounded-2xl shadow-2xl shadow-red-600/20 text-xs uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-500"
+                            >
+                                Collaborate
+                            </motion.button>
+                        </Link>
+                        <Link to="/projects">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                className="group flex items-center gap-4 text-white font-black uppercase tracking-[0.2em] text-[11px]"
+                            >
+                                <span className="w-12 h-px bg-white/20 group-hover:w-20 group-hover:bg-red-500 transition-all duration-500" />
+                                View Works
+                            </motion.button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>

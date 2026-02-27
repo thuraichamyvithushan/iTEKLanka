@@ -1,15 +1,12 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import darkBgSvg from '../../assets/dark-birds-bg.svg';
-import blog1 from '../../assets/blog/seo.png';
-
-const blogPosts = [
-    { category: "Agency", date: "Nov 18, 2025", author: "Mithushan", title: "How SEO Audit Help You Fix Hidden Issues", image: blog1, link: "/blog/seo-audit" },
-    { category: "Branding", date: "Nov 18, 2025", author: "Mithushan", title: "Why Your Business Needs a Strong Brand", image: blog1, link: "/blog/strong-brand" },
-    { category: "Business Tips", date: "Nov 18, 2025", author: "Mithushan", title: "Why Local SEO Matters for UK Businesses", image: blog1, link: "/blog/local-seo-uk" },
-    { category: "Agency", date: "Nov 20, 2025", author: "Mithushan", title: "The Future of Digital Marketing in 2026", image: blog1, link: "/blog/future-marketing" },
-];
+import { blogPosts } from '../blog/Blog';
 
 export default function HomeBlog() {
+    // Show only the 4 most recent posts
+    const featuredPosts = blogPosts.slice(0, 4);
+
     return (
         <section className="relative w-full py-24 md:py-40 overflow-hidden bg-black">
             <div className="absolute inset-0 z-0 pointer-events-none">
@@ -39,9 +36,9 @@ export default function HomeBlog() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    {blogPosts.map((post, idx) => (
+                    {featuredPosts.map((post, idx) => (
                         <motion.a
-                            key={post.title}
+                            key={post.id}
                             href={post.link}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -75,13 +72,15 @@ export default function HomeBlog() {
                 </div>
 
                 <div className="mt-20 text-center">
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="px-12 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-red-600 hover:text-white transition-all duration-500"
-                    >
-                        All Perspectives
-                    </motion.button>
+                    <Link to="/blog">
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="px-12 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-red-600 hover:text-white transition-all duration-500"
+                        >
+                            All Perspectives
+                        </motion.button>
+                    </Link>
                 </div>
             </div>
         </section>
